@@ -50,11 +50,14 @@ const server = new Server(
   {
     capabilities: { tools: {} },
     instructions: [
-      'Apple Reminders MCP. Creates and manages reminders on the local Mac, which sync to the user\'s iPhone via iCloud shared lists.',
+      'Apple Reminders MCP. Manages reminders on the local Mac, synced to the owner\'s iPhone via iCloud shared lists.',
       '',
-      'Use list_lists to see available lists. Use create_reminder to add tasks. Use list_reminders to check what\'s pending.',
-      '',
-      'Reminders sync to the user\'s iPhone automatically via iCloud. This is a write-heavy tool — agents create reminders, the user manages them on their phone.',
+      'RULES:',
+      '- Always call list_reminders BEFORE creating a reminder. Do not add duplicates.',
+      '- Reminders is the source of truth for todos and ideas, not memory. When asked about todos, read the list.',
+      '- Keep titles short and clear. Use the notes field for context if needed.',
+      '- Do not mark reminders as completed unless explicitly asked.',
+      '- Which list to use is defined in your CLAUDE.md. Do not create new lists without asking.',
     ].join('\n'),
   },
 )
