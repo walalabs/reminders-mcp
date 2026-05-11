@@ -7,10 +7,10 @@ Used today by Mira on Luna for tracking Arshad's personal/work reminders that au
 ## Tools
 
 - `list_lists()` — return all Reminders lists on the system (e.g., `Luna`, `Work`, `Home`).
-- `list_reminders(list?)` — show reminders, optionally filtered to one list.
-- `create_reminder(list, title, notes?, due?, priority?)` — add a reminder.
-- `complete_reminder(id)` — mark a reminder done.
-- `delete_reminder(id)` — remove a reminder.
+- `list_reminders(list, include_completed?)` — show reminders in a list (incomplete by default).
+- `create_reminder(list, title, notes?, due_date?, priority?)` — add a reminder.
+- `complete_reminder(list, title)` — mark a reminder done by list + title.
+- `delete_reminder(list, title)` — remove a reminder by list + title.
 
 The plugin wraps macOS Reminders via AppleScript / `osascript`. Tools that mutate require the macOS Automation permission to be granted to the terminal running Claude Code.
 
